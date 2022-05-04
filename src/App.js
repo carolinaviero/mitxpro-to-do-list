@@ -26,6 +26,20 @@ function App() {
     setTasks(newArray);
   };
 
+  const handleEdit = (taskId, editedTask) => {
+    const editedArray = tasks.map(task => {
+      if (task.id !== taskId) {
+        return task;
+      } else {
+        return {
+          id: taskId,
+          description: editedTask,
+        };
+      }
+    });
+
+    setTasks(editedArray);
+  };
 
   return (
     <div>
@@ -34,7 +48,7 @@ function App() {
       </h1>
         {tasks.map((element) => (
           <div className="container">
-            <ListItem task={element} key={element.id} handleIsComplete={handleIsComplete} />
+            <ListItem task={element} key={element.id} handleEdit={handleEdit} handleIsComplete={handleIsComplete} />
           </div>
         ))}
         <FormList handleClick={handleClick} value={value} setValue={setValue} />
