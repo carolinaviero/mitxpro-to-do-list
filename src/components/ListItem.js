@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../App.css';
 
-export function ListItem({ task, handleEdit, handleIsComplete }) {
+export function ListItem({ task, handleEdit, handleDelete, handleIsComplete }) {
     const [isEditMode, setIsEditMode] = useState(false);
     const [editedTask, setEditedTask] = useState(task.description);
   
@@ -28,6 +28,7 @@ export function ListItem({ task, handleEdit, handleIsComplete }) {
           </ul>
         )}
         <button onClick={() => handleEditClick()}>{isEditMode ? '✅' : '✍️'}</button>
+        <button onClick={() => handleDelete(task.id)}>❌</button>
       </>
     );
   }

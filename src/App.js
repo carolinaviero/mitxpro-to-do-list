@@ -41,6 +41,8 @@ function App() {
     setTasks(editedArray);
   };
 
+  const handleDelete = id => setTasks(tasks.filter(item => item.id !== id));
+
   return (
     <div>
       <h1>
@@ -48,7 +50,7 @@ function App() {
       </h1>
         {tasks.map((element) => (
           <div className="container">
-            <ListItem task={element} key={element.id} handleEdit={handleEdit} handleIsComplete={handleIsComplete} />
+            <ListItem task={element} key={element.id} handleEdit={handleEdit} handleDelete={handleDelete} handleIsComplete={handleIsComplete} />
           </div>
         ))}
         <FormList handleClick={handleClick} value={value} setValue={setValue} />
