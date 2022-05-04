@@ -1,7 +1,12 @@
-export function ListItem({ task }) {
+import '../App.css';
+
+export function ListItem({ task, handleIsComplete }) {
     return (
-        <ul>
-            <li>{task.description}</li>
-        </ul>
+        <>
+            <button onClick={() => handleIsComplete(task.id)}>{task.isCompleted ? '☑️' : '⚪️'}</button>
+            <ul className={task.isCompleted ? 'crossListItem' : ''}>
+                <li>{task.description}</li>
+            </ul>
+        </>
     )
 };

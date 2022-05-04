@@ -12,3 +12,19 @@ body {
 ul {
   list-style-type: none;
 }
+
+.crossListItem {
+  text-decoration: line-through;
+}
+
+button {
+  height: 10%;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  margin: 4px;
+  text-decoration: none;
+  display: inline-block;
+  background-color: transparent;
+
+}

@@ -18,6 +18,15 @@ function App() {
     setValue('');
   }
 
+  const handleIsComplete = id => {
+    const foundItem = tasks.find(task => task.id === id);
+    foundItem.isCompleted = !foundItem.isCompleted;
+    const newArray = tasks.map(task => (task.id === id ? foundItem : task));
+
+    setTasks(newArray);
+  };
+
+
   return (
     <div>
       <h1>
@@ -25,7 +34,7 @@ function App() {
       </h1>
         {tasks.map((element) => (
           <div className="container">
-            <ListItem task={element} key={element.id} />
+            <ListItem task={element} key={element.id} handleIsComplete={handleIsComplete} />
           </div>
         ))}
         <FormList handleClick={handleClick} value={value} setValue={setValue} />
